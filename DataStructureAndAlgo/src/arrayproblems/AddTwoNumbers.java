@@ -1,6 +1,4 @@
-package ArrayProblems;
-
-import org.w3c.dom.NodeList;
+package arrayproblems;
 
 public class AddTwoNumbers {
     public static void main(String[] args) {
