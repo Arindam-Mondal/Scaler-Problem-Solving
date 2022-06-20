@@ -5,3 +5,5 @@ Interesting Problems:
 -----------------------
 
 1. **Overlapping rectangles** - TrianglesOverlap.java 
+2. **Majority Element** - MajorityElement.java
+3. **Christmas trees** - ChristmasTrees.java
