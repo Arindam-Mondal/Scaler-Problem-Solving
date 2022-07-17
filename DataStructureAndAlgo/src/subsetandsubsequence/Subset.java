@@ -1,4 +1,4 @@
-package subset;
+package subsetandsubsequence;
 
 import java.util.ArrayList;
 
