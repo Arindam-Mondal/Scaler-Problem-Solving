@@ -1,5 +1,7 @@
 package stringproblems;
 
+import java.util.ArrayList;
+
 /**
  * Given an integer x, return true if x is palindrome integer.
  *
@@ -48,5 +50,22 @@ public class PalindromeNumber {
             j--;
         }
         return true;
+    }
+
+    //Without conversion to string
+    public boolean isPalindromeWithoutConversion(int x) {
+        if(x == 0) return true;
+        if(x<0 || x%10 == 0) return false;
+        int  o = x;
+        ArrayList<Integer> list = new ArrayList<>();
+        while(x>0){
+            list.add(x%10);
+            x = x/10;
+        }
+        int sum = 0;
+        for(int i=0;i<list.size();i++){
+            sum = sum + list.get(i) * (int)Math.pow(10,list.size()-i-1);
+        }
+        return sum == o;
     }
 }
