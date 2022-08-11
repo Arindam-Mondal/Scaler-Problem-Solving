@@ -44,6 +44,8 @@ package advance.bitmanipulation;
  * The value of X will be 2 and the value of Y will be 8. The XOR of 2 and 8 is 10.
  */
 public class StrangeEquality {
+    //The problem was solved using the relationship - (A+B) = (A^B) + 2*(A&B)
+    //As per the question A+B should be equal to A^B and to satisfy this A&B should be 0
     public int solve(int A) {
         int x = 0;
         int i = 0;
