@@ -1,4 +1,4 @@
-package advance.bitmanipulation;
+package advance.gcd;
 
 /**
  *
