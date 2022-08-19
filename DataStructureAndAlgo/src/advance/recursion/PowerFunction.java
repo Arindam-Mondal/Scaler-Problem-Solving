@@ -1,4 +1,4 @@
-package advance.modular;
+package advance.recursion;
 
 /**
  * Implement Power Function
@@ -38,23 +38,15 @@ package advance.modular;
  */
 public class PowerFunction {
     public int pow(int A, int B, int C) {
-        if(A==0){
-            return 0;
-        }
-        if(B == 0){
-            return 1;
+        if(B==0){
+            return 1%C;
         }
         long halfPower = (long)pow(A,B/2,C);
-        if(B % 2 == 0){
-            return (int)((halfPower%C * halfPower%C) + C)%C;
-        }else {
-            return (int)((A%C * halfPower%C * halfPower%C)+C)%C;
-        }
-    }
 
-    public static void main(String[] args) {
-        PowerFunction p = new PowerFunction();
-        int power = p.pow(-1,2,20);
-        System.out.println(power);
+        if((B&1) == 1){
+            return (int)((halfPower%C * halfPower%C * A%C) + C)%C;
+        }else {
+            return (int)((halfPower%C * halfPower%C) + C) % C;
+        }
     }
 }
