@@ -69,6 +69,6 @@ public class MagicNumber {
             return 0;
         }
 
-        return A%10 + A/10;
+        return A%10 + sumNumber(A/10);
     }
 }
