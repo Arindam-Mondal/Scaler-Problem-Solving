@@ -65,4 +65,24 @@ public class LinkListOperations {
         temp.next = temp.next.next;
         return A;
     }
+
+    public ListNode reverseList(ListNode A) {
+        if(A.next == null){
+            return A;
+        }
+        ListNode head = A;
+        ListNode prev = A;
+        ListNode curr = A.next;
+        ListNode next = A.next.next;
+
+        while(curr !=null){
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            next = curr == null ? null : curr.next;
+        }
+        head.next = null;
+        head = prev;
+        return head;
+    }
 }
