@@ -85,4 +85,37 @@ public class LinkListOperations {
         head = prev;
         return head;
     }
+
+    public ListNode reverseBetween(ListNode A, int B, int C) {
+
+        int start = 1;
+        ListNode head = A;
+        ListNode temp = A;
+        ListNode prevTemp = A;
+        while(start != B){
+            prevTemp = temp;
+            temp = temp.next;
+            start++;
+        }
+
+        ListNode prev = temp;
+        ListNode curr = prev.next;
+        ListNode next = curr == null ? null : curr.next;
+
+        int end = start;
+        while(end != C){
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            next = curr == null ? null : curr.next;
+            end++;
+        }
+        prevTemp.next = prev;
+        temp.next = curr;
+        if(B==1){
+            head = prev;
+        }
+
+        return head;
+    }
 }
