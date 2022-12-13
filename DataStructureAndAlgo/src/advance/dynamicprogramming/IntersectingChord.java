@@ -52,7 +52,7 @@ package advance.dynamicprogramming;
  *  So, we return 2.
  *
  */
-public class InterestingChord {
+public class IntersectingChord {
 
     public class Solution {
         int[] dp;
