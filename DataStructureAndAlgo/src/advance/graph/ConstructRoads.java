@@ -2,6 +2,8 @@ package advance.graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Problem Description
@@ -76,15 +78,15 @@ public class ConstructRoads {
         long red = 0;
         long blue = 0;
         int n = B.size();
-        int[] colors = new int[A+1];
-        Arrays.fill(colors,-1);
+        int[] colors = new int[A + 1];
+        Arrays.fill(colors, -1);
         //create the adjacencyList
-        ArrayList<Integer>[] adjacencyList = new ArrayList[A+1];
-        for(int i=0;i<=A;i++){
+        ArrayList<Integer>[] adjacencyList = new ArrayList[A + 1];
+        for (int i = 0; i <= A; i++) {
             adjacencyList[i] = new ArrayList<>();
         }
         // Arrays.fill(adjacencyList,new ArrayList<>());
-        for(int i=0;i<n;i++){
+        for (int i = 0; i < n; i++) {
             int from = B.get(i).get(0);
             int to = B.get(i).get(1);
 
@@ -98,16 +100,16 @@ public class ConstructRoads {
 
         //Start BFS
         Queue<Integer> bfs = new LinkedList<>();
-        for(int i=1;i<colors.length;i++){
-            if(colors[i] == -1){
+        for (int i = 1; i < colors.length; i++) {
+            if (colors[i] == -1) {
                 //only then color it.
                 colors[i] = 1;
                 bfs.add(i);
-                while(!bfs.isEmpty()){
+                while (!bfs.isEmpty()) {
                     int curr = bfs.poll();
-                    for(int k : adjacencyList[curr]){
-                        if(colors[k] == -1){
-                            colors[k] = 1-colors[curr];
+                    for (int k : adjacencyList[curr]) {
+                        if (colors[k] == -1) {
+                            colors[k] = 1 - colors[curr];
                             bfs.add(k);
                         }
                     }
@@ -116,13 +118,14 @@ public class ConstructRoads {
             // System.out.print(colors[i]+" ");
         }
         long mod = 1000000007;
-        for(int i=1;i<colors.length;i++){
-            if(colors[i] == 1){
+        for (int i = 1; i < colors.length; i++) {
+            if (colors[i] == 1) {
                 blue++;
-            }else{
+            } else {
                 red++;
             }
         }
 
-        return (int)((blue * red)%mod -n);
+        return (int) ((blue * red) % mod - n);
+    }
 }
