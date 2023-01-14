@@ -88,7 +88,7 @@ class TreeLinkNode {
 }
 
 public class NextPointerBinaryTree {
-    public void connect(TreeLinkNode root) {
+    public void connectWithExtraSpace(TreeLinkNode root) {
         Queue<TreeLinkNode> queue = new LinkedList<>();
         queue.add(root);
         queue.add(null);
@@ -107,5 +107,23 @@ public class NextPointerBinaryTree {
             queue.remove();
             queue.add(null);
         }
+    }
+
+    public void connectWithoutExtraSpace(TreeLinkNode root) {
+
+        TreeLinkNode curr = root; // this pointer is used to traverse horizontally
+        TreeLinkNode leftmost = root; // this pointer is used to traverse vertically
+
+        while(curr.left != null){
+            curr.left.next = curr.right;
+            if(curr.next != null){
+                curr.right.next = curr.next.left;
+                curr = curr.next;
+            }else{
+                curr = leftmost.left;
+                leftmost = curr;
+            }
+        }
+
     }
 }
