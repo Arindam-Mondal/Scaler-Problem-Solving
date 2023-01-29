@@ -30,21 +30,21 @@ import java.util.List;
  *
  */
 
-public class GnerateParanthesis {
+public class GenerateParenthesis {
     public List<String> generateParenthesis(int n) {
         ArrayList<String> res = new ArrayList<>();
-        char[] paranthesis = new char[n*2];
+        char[] parenthesis = new char[n*2];
 
-        generateParanthesisHelper(n,paranthesis,res,0);
+        generateParenthesisHelper(n,parenthesis,res,0);
         return res;
 
     }
 
-    public void generateParanthesisHelper(int n, char[] paranthesis, ArrayList<String> res,int pos){
+    public void generateParenthesisHelper(int n, char[] parenthesis, ArrayList<String> res, int pos){
         if((n*2)==pos){
-            if(isvalidParenthesis(paranthesis)){
+            if(isValidParenthesis(parenthesis)){
                 StringBuilder s = new StringBuilder();
-                for(char c:paranthesis){
+                for(char c:parenthesis){
                     s.append(c);
                 }
                 res.add(s.toString());
@@ -55,16 +55,16 @@ public class GnerateParanthesis {
         //either add '('
         //or
         //add ')'
-        paranthesis[pos] = '(';
-        generateParanthesisHelper(n,paranthesis,res,pos+1);
-        paranthesis[pos] = ')';
-        generateParanthesisHelper(n,paranthesis,res,pos+1);
+        parenthesis[pos] = '(';
+        generateParenthesisHelper(n,parenthesis,res,pos+1);
+        parenthesis[pos] = ')';
+        generateParenthesisHelper(n,parenthesis,res,pos+1);
     }
 
-    public boolean isvalidParenthesis(char[] paranthesis){
+    public boolean isValidParenthesis(char[] parenthesis){
         int open = 0;
         int close = 0;
-        for(char c : paranthesis){
+        for(char c : parenthesis){
             if(c == '('){
                 open++;
             }else{
